@@ -7,9 +7,7 @@ RUN  curl -s -O https://dl.google.com/go/go"${GO_VERSION}".linux-amd64.tar.gz   
      tar -xf go"${GO_VERSION}".linux-amd64.tar.gz -C /usr/local                  && \
      rm go"${GO_VERSION}".linux-amd64.tar.gz    
 
-COPY --chown=coder:coder .zshrc     /home/coder/.zshrc
 
-# ----------------------------------------------------------------------------------------
 # vscode extention go tools prior to installing vscode go extention 
 USER coder
 ENV  USER coder
@@ -31,8 +29,9 @@ RUN  export PATH=$PATH:.:/usr/local/go/bin/                           && \
      `# terminal app `                                                && \
      go install github.com/sorenisanerd/gotty@latest
 
+
 # vscode extentions
-RUN  /usr/bin/code-server --install-extension jpotterm.simple-vim     && \
+RUN  /usr/bin/code-server --install-extension vscodevim.vim           && \
      /usr/bin/code-server --install-extension golang.go               && \
      /usr/bin/code-server --install-extension vsls-contrib.codetour 
 
@@ -40,6 +39,7 @@ RUN  mkdir -p /home/coder/workspace                                   && \
      mkdir -p /home/coder/.local/bin                                  && \
      chown -R coder:coder /home/coder/workspace        
 
+COPY --chown=coder:coder .zshrc         /home/coder/.zshrc
 COPY --chown=coder:coder settings.json  /home/coder/.local/share/code-server/User/settings.json
 COPY --chown=coder:coder entrypoint.sh  /home/coder/.local/bin/entrypoint.sh
 RUN  chmod +x /home/coder/.local/bin/entrypoint.sh
