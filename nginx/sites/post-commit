@@ -1,0 +1,7 @@
+#!/bin/bash -e
+
+# set -x
+
+cmd=$(vag docker scp nginx-public "$(pwd)/www.curiosityworks.org/public/*" /var/www/www.curiosityworks.org/htdocs   --show)
+
+eval $cmd
