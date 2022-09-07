@@ -35,7 +35,9 @@ RUN  export PATH="$HOME/.pyenv/bin:$PATH"                             && \
 RUN  /usr/bin/code-server --install-extension ms-python.python        && \
      /usr/bin/code-server --install-extension vsls-contrib.codetour   && \
      /home/coder/.pyenv/shims/python3 -m pip install -U pylint --user && \
-     /home/coder/.pyenv/shims/python3 -m pip install --upgrade pip
+     /home/coder/.pyenv/shims/python3 -m pip install --upgrade pip    && \
+     export GET_POETRY_IGNORE_DEPRECATION=1;                             \
+     curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | /home/coder/.pyenv/shims/python3 -
 
 RUN  mkdir -p /home/coder/workspace                                   && \
      mkdir -p /home/coder/.local/bin                                  && \
