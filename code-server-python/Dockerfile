@@ -30,7 +30,6 @@ RUN  export PATH="$HOME/.pyenv/bin:$PATH"                             && \
      pyenv install 3.8.10                                             && \
      pyenv global 3.8.10 
 
-COPY --chown=coder:coder .zshrc     /home/coder/.zshrc
 
 # ----------------------------------------------------------------------------------------
 RUN  /usr/bin/code-server --install-extension ms-python.python        && \
@@ -42,6 +41,7 @@ RUN  mkdir -p /home/coder/workspace                                   && \
      mkdir -p /home/coder/.local/bin                                  && \
      chown -R coder:coder /home/coder/workspace        
 
+COPY --chown=coder:coder .zshrc     /home/coder/.zshrc
 COPY --chown=coder:coder settings.json  /home/coder/.local/share/code-server/User/settings.json
 COPY --chown=coder:coder entrypoint.sh  /home/coder/.local/bin/entrypoint.sh
 RUN  chmod +x /home/coder/.local/bin/entrypoint.sh
