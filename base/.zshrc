@@ -1,6 +1,6 @@
 # .zshrc
 
-export PATH=$PATH:.:/usr/local/go/bin:~/bin:$HOME/go/bin:/home/coder/.local/bin
+export PATH=$PATH:.:~/bin::/home/coder/.local/bin
 
 fpath+=$HOME/.zsh/pure
 autoload -U promptinit; promptinit
