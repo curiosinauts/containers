@@ -7,9 +7,8 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 cd $SCRIPT_DIR
 
-repo=base
 version=$1
 
-docker build -t curiosinauts/base:${version} .
+docker build -t curiosinauts/docker-base-image:${version} .
 
-docker push curiosinauts/base:${version}
+docker push curiosinauts/docker-base-image:${version}
