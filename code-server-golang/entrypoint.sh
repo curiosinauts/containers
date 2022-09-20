@@ -11,7 +11,7 @@ password: ${VSCODE_PASSWORD:-coder}
 cert: false 
 EOF
 
-export DEFAULT_VALUE="vscode-go-${VSCODE_USERNAME}.curiosityworks.org"
+export DEFAULT_VALUE="vscode-${VSCODE_USERNAME}.curiosityworks.org"
 
 export VSCODE_HOST=${VSCODE_HOST:-"${DEFAULT_VALUE}"}
 
