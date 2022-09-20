@@ -11,7 +11,9 @@ password: ${VSCODE_PASSWORD:-coder}
 cert: false 
 EOF
 
-export VSCODE_HOST=${VSCODE_HOST:-"vscode-go-${VSCODE_USERNAME}.curiosityworks.org"}
+export DEFAULT_VALUE="vscode-go-${VSCODE_USERNAME}.curiosityworks.org"
+
+export VSCODE_HOST=${VSCODE_HOST:-"${DEFAULT_VALUE}"}
 
 cat << EOF > /home/coder/.local/bin/gotty.sh
 #!/bin/sh
