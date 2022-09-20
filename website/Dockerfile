@@ -1,4 +1,4 @@
-FROM debian:10 
+FROM curiosinauts/docker-base-image:1.0.0 
 
 RUN apt-get update && apt-get install -y nginx                                 
 
@@ -7,8 +7,8 @@ COPY sites-available /etc/nginx/sites-available
 
 RUN  set -x                                                      && \
      chmod +x /entrypoint.sh                                     && \
-     mkdir -p /var/www/www.curiosityworks.org/htdocs             && \
-     chown -R root:root /var/www                                 && \
+     mkdir -p /mnt/data/www                                      && \
+     chown -R root:root /mnt/data/www                            && \
      ln -s /etc/nginx/sites-available/www.curiosityworks.org        \
            /etc/nginx/sites-enabled/www.curiosityworks.org  
 

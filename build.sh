@@ -21,7 +21,7 @@ docker rm -f ${container_name} 2> /dev/null || true
 
 echo
 echo starting test docker instance
-${container_name}/test_docker_run.sh ${container_name} ${version} 2> /dev/null || true
+[ -f "${container_name}/test_docker_run.sh" ] && ${container_name}/test_docker_run.sh ${container_name} ${version} 2> /dev/null || true
 
 echo
 echo docker exec-ing to check out the file system

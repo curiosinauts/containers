@@ -1,5 +1,5 @@
   server {
-    server_name www.curiosityworks.org;
+    server_name www.curiosityworks.org localhost:8080;
 
     root /mnt/data/www;
   }
