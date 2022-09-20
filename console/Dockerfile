@@ -1,10 +1,8 @@
 FROM curiosinauts/docker-base-image:1.0.0
 
-ARG CONSOLE_VERSION
-ENV CONSOLE_VERSION ${CONSOLE_VERSION}
+ENV  CONSOLE_VERSION=0.1.0
 
-
-RUN set -x; curl -L https://github.com/curiosinauts/console/releases/download/v${CONSOLE_VERSION}/console_${CONSOLE_VERSION}_Linux_x86_64.tar.gz | tar -xvz -C /
+RUN  set -x; curl -L https://github.com/curiosinauts/console/releases/download/v${CONSOLE_VERSION}/console_${CONSOLE_VERSION}_Linux_x86_64.tar.gz | tar -xvz -C /
 
 COPY --chown=debian:debian  entrypoint.sh        /entrypoint.sh
 
