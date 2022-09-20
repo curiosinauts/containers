@@ -1,7 +1,0 @@
-config.yml
-*.app
-authorized_keys
-.gitconfig
-profile-*.yml
-repositories.txt
-runtime_install.sh
