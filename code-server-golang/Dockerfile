@@ -45,6 +45,5 @@ COPY --chown=coder:coder entrypoint.sh  /home/coder/.local/bin/entrypoint.sh
 RUN  chmod +x /home/coder/.local/bin/entrypoint.sh
 
 EXPOSE 9991
-EXPOSE 22
 
 ENTRYPOINT ["/home/coder/.local/bin/entrypoint.sh"]
