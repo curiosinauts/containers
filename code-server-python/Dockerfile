@@ -39,6 +39,9 @@ RUN  /usr/bin/code-server --install-extension ms-python.python        && \
      export GET_POETRY_IGNORE_DEPRECATION=1;                             \
      curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | /home/coder/.pyenv/shims/python3 -
 
+ENV  GOTTY_VERSION=1.5.0
+RUN  curl -sfL https://github.com/sorenisanerd/gotty/releases/download/v${GOTTY_VERSION}/gotty_v${GOTTY_VERSION}_linux_amd64.tar.gz | sudo tar -xz -C /usr/local/bin
+
 RUN  mkdir -p /home/coder/workspace                                   && \
      mkdir -p /home/coder/.local/bin                                  && \
      chown -R coder:coder /home/coder/workspace        
