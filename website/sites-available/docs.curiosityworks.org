@@ -1,0 +1,5 @@
+  server {
+    server_name docs.curiosityworks.org localhost:8080;
+
+    root /mnt/data/docs;
+  }

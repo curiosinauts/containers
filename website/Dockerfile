@@ -10,7 +10,9 @@ RUN  set -x                                                      && \
      mkdir -p /mnt/data/www                                      && \
      chown -R root:root /mnt/data/www                            && \
      ln -s /etc/nginx/sites-available/www.curiosityworks.org        \
-           /etc/nginx/sites-enabled/www.curiosityworks.org  
+           /etc/nginx/sites-enabled/www.curiosityworks.org       && \
+     ln -s /etc/nginx/sites-available/docs.curiosityworks.org       \
+           /etc/nginx/sites-enabled/docs.curiosityworks.org  
 
 EXPOSE 80
 
