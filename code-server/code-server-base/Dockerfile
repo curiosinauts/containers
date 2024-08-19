@@ -59,7 +59,7 @@ USER coder
 
 RUN chown -R coder:coder /home/coder
 
-ENV CDR_VERSION=4.6.1
+ENV CDR_VERSION=4.91.1
 RUN <<EOF
     curl -sfOL https://github.com/cdr/code-server/releases/download/v${CDR_VERSION}/code-server_${CDR_VERSION}_amd64.deb
     sudo dpkg -i code-server_${CDR_VERSION}_amd64.deb
