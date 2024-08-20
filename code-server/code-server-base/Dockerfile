@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM debian:10 AS base
+FROM debian:12 AS base
 
 ENV username=coder
 

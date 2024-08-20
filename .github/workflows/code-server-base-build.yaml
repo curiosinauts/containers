@@ -6,6 +6,8 @@ on:
       - 'main'
     paths:
       - 'code-server/code-server-base/**'
+    tags:
+      - '*'
 
 defaults:
   run:
