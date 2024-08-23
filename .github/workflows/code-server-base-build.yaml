@@ -43,10 +43,11 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      # github.event.base_ref =='refs/heads/main' set if the event is PR 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: code-server/code-server-base
-          push: ${{ github.event.base_ref =='refs/heads/main' && github.ref_type == 'tag' && !startsWith(github.ref, 'refs/tags/v0.') }}
+          push: ${{ github.ref_type == 'tag' && !startsWith(github.ref, 'refs/tags/v0.') }}
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
