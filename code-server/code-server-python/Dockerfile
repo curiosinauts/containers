@@ -1,9 +1,9 @@
-FROM curiosinauts/code-server-base:1.0.0
+FROM curiosinauts/code-server-base:1.0.5
 
 ENV username=coder
 
 # ensure local python is preferred over distribution python
-ENV PATH /usr/local/bin:$PATH
+ENV PATH=/usr/local/bin:$PATH
 
 # https://github.com/pyenv/pyenv/wiki#suggested-build-environment
 RUN  sudo apt-get update && sudo apt-get install -y                      \
@@ -27,26 +27,21 @@ RUN  sudo apt-get update && sudo apt-get install -y                      \
      curl https://pyenv.run | bash
  
 RUN  export PATH="$HOME/.pyenv/bin:$PATH"                             && \
-     pyenv install 3.8.10                                             && \
-     pyenv global 3.8.10 
+     pyenv install 3.10.12                                            && \
+     pyenv global 3.10.12 
 
 
 # ----------------------------------------------------------------------------------------
 RUN  /usr/bin/code-server --install-extension ms-python.python        && \
      /usr/bin/code-server --install-extension vsls-contrib.codetour   && \
      /home/coder/.pyenv/shims/python3 -m pip install -U pylint --user && \
-     /home/coder/.pyenv/shims/python3 -m pip install --upgrade pip    && \
-     export GET_POETRY_IGNORE_DEPRECATION=1;                             \
-     curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | /home/coder/.pyenv/shims/python3 -
-
-ENV  GOTTY_VERSION=1.5.0
-RUN  curl -sfL https://github.com/sorenisanerd/gotty/releases/download/v${GOTTY_VERSION}/gotty_v${GOTTY_VERSION}_linux_amd64.tar.gz | sudo tar -xz -C /usr/local/bin
+     /home/coder/.pyenv/shims/python3 -m pip install --upgrade pip
 
 RUN  mkdir -p /home/coder/workspace                                   && \
      mkdir -p /home/coder/.local/bin                                  && \
      chown -R coder:coder /home/coder/workspace        
 
-COPY --chown=coder:coder .zshrc     /home/coder/.zshrc
+COPY --chown=coder:coder .zshrc         /home/coder/.zshrc
 COPY --chown=coder:coder settings.json  /home/coder/.local/share/code-server/User/settings.json
 COPY --chown=coder:coder entrypoint.sh  /home/coder/.local/bin/entrypoint.sh
 RUN  chmod +x /home/coder/.local/bin/entrypoint.sh
