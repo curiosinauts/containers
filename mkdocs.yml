@@ -1,0 +1,39 @@
+site_name: "containers documentation" 
+copyright: curiosityworks.org
+repo_url: https://github.com/curiosinauts/containers
+edit_uri: edit/main/docs/
+site_dir: site
+
+nav:
+  - "index.md"
+  # - Foo:
+  #     - "foo/index.md"
+
+theme:
+  name: material
+  language: en
+  # favicon: images/favicon-pplus-32x32.png
+  icon:
+    repo: fontawesome/brands/github
+  # logo: images/paramount_icon_logo_white-cropped.gif
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      # scheme: paramount-light
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+  features:
+    - content.action.edit
+    - content.action.view
+    - content.code.copy
+    - navigation.footer
+  #   - navigation.tabs
+  #   - navigation.tabs.sticky
+
+extra:
+  generator: false
