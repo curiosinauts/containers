@@ -1,1 +1,0 @@
-FROM joxit/docker-registry-ui:latest
